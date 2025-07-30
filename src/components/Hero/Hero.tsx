@@ -12,14 +12,10 @@ const Hero: React.FC = () => {
     scrollToSection("productos");
   };
 
-  const handleContactar = () => {
-    scrollToSection("contacto");
-  };
-
   return (
     <section className={styles.hero}>
-      <div className={styles.container}>
-        <div className={styles.content}>
+      <div className={styles.heroContent}>
+        <div className={styles.textContent}>
           <h1 className={styles.title}>
             Descubre el poder del conocimiento con{" "}
             <span className={styles.highlight}>Aquiles</span>
@@ -39,26 +35,15 @@ const Hero: React.FC = () => {
             >
               Ver Productos
             </Button>
-
-            <Button
-              variant="primary"
-              size="large"
-              onClick={handleContactar}
-              className={styles.secondaryButton}
-            >
-              Contactar
-            </Button>
           </div>
         </div>
 
-        <div className={styles.visual}>
-          <div className={styles.heroImage}>
-            <div className={styles.bookStack}>
-              <div className={styles.book}></div>
-              <div className={styles.book}></div>
-              <div className={styles.book}></div>
-            </div>
-          </div>
+        <div className={styles.heroImage}>
+          <img
+            src="/images/recetario.png"
+            alt="Aquiles - Recetario de conocimiento"
+            className={styles.image}
+          />
         </div>
       </div>
     </section>

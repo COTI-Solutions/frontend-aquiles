@@ -69,13 +69,39 @@
   line-height: 1.3;
 }
 
+.descriptionContainer {
+  flex: 1;
+  margin-bottom: $spacing-md;
+}
+
 .description {
   font-family: $font-family-text;
   font-size: 0.875rem;
   color: $color-text-secondary;
   line-height: 1.5;
-  margin: 0 0 $spacing-md 0;
-  flex: 1;
+  margin: 0 0 $spacing-xs 0;
+}
+
+.expandButton {
+  background: none;
+  border: none;
+  color: $color-accent;
+  font-family: $font-family-text;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: darken($color-accent, 10%);
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
 }
 
 .price {
@@ -86,7 +112,21 @@
   margin: 0 0 $spacing-md 0;
 }
 
-.buyButton {
-  width: 100%;
+.buttonContainer {
+  display: flex;
+  gap: $spacing-sm;
   margin-top: auto;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+}
+
+.viewButton {
+  flex: 1;
+}
+
+.buyButton {
+  flex: 1;
 }

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import styles from "./ProductCard.module.scss";
 
@@ -9,6 +11,7 @@ interface ProductCardProps {
   imageUrl?: string;
   price?: string;
   buyUrl?: string;
+  productUrl?: string;
   color?: string;
 }
 
@@ -18,8 +21,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
   imageUrl,
   price,
   buyUrl = "#",
+  productUrl = "#",
   color = "#27AE60",
 }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const maxLength = 100;
+  const shouldTruncate = description.length > maxLength;
+
+  const truncatedDescription = shouldTruncate
+    ? description.substring(0, maxLength) + "..."
+    : description;
+
+  const toggleDescription = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
@@ -39,18 +55,39 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
+
+        <div className={styles.descriptionContainer}>
+          <p className={styles.description}>
+            {isExpanded ? description : truncatedDescription}
+          </p>
+          {shouldTruncate && (
+            <button onClick={toggleDescription} className={styles.expandButton}>
+              {isExpanded ? "Ver menos" : "Ver más"}
+            </button>
+          )}
+        </div>
 
         {price && <div className={styles.price}>{price}</div>}
 
-        <Button
-          variant="secondary"
-          size="medium"
-          href={buyUrl}
-          className={styles.buyButton}
-        >
-          Comprar
-        </Button>
+        <div className={styles.buttonContainer}>
+          <Button
+            variant="secondary"
+            size="medium"
+            href={productUrl}
+            className={styles.viewButton}
+          >
+            Ver más
+          </Button>
+
+          <Button
+            variant="accent"
+            size="medium"
+            href={buyUrl}
+            className={styles.buyButton}
+          >
+            Comprar
+          </Button>
+        </div>
       </div>
     </div>
   );
