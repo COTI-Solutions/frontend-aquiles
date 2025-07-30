@@ -1,0 +1,129 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  background-color: $color-primary;
+  color: $color-text-light;
+  padding: $spacing-3xl 0 $spacing-xl 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-3xl;
+  margin-bottom: $spacing-2xl;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+    text-align: center;
+  }
+}
+
+.brand {
+  .brandName {
+    font-family: $font-family-title;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 $spacing-md 0;
+    color: $color-accent;
+  }
+
+  .brandDescription {
+    font-family: $font-family-text;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+  }
+}
+
+.contact {
+  .contactTitle {
+    font-family: $font-family-title;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  .contactLinks {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    @media (max-width: $breakpoint-md) {
+      align-items: center;
+    }
+  }
+
+  .contactLink {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-family: $font-family-text;
+    font-size: 1rem;
+    color: $color-text-light;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    padding: $spacing-sm;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateX(4px);
+    }
+
+    .icon {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: $spacing-xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.copyright {
+  p {
+    font-family: $font-family-text;
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin: 0;
+  }
+}
+
+.credits {
+  p {
+    font-family: $font-family-text;
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  .cotiLink {
+    color: $color-secondary;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: #2ecc71;
+    }
+  }
+}

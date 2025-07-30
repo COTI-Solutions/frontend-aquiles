@@ -1,0 +1,79 @@
+@import "../../styles/variables.scss";
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: $border-radius-md;
+  font-family: $font-family-text;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  // Variantes de color
+  &--primary {
+    background-color: $color-primary;
+    color: $color-text-light;
+
+    &:hover:not(:disabled) {
+      background-color: darken($color-primary, 10%);
+    }
+  }
+
+  &--secondary {
+    background-color: $color-secondary;
+    color: $color-text-light;
+
+    &:hover:not(:disabled) {
+      background-color: darken($color-secondary, 10%);
+    }
+  }
+
+  &--accent {
+    background-color: $color-accent;
+    color: $color-text-light;
+
+    &:hover:not(:disabled) {
+      background-color: darken($color-accent, 10%);
+    }
+  }
+
+  // Tamaños
+  &--small {
+    padding: $spacing-sm $spacing-md;
+    font-size: 0.875rem;
+    min-height: 2.5rem;
+  }
+
+  &--medium {
+    padding: $spacing-md $spacing-lg;
+    font-size: 1rem;
+    min-height: 3rem;
+  }
+
+  &--large {
+    padding: $spacing-lg $spacing-xl;
+    font-size: 1.125rem;
+    min-height: 3.5rem;
+  }
+}

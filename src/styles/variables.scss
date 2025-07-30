@@ -1,0 +1,46 @@
+// Variables de colores para Aquiles Conecta
+$color-petroleum-blue: #2c3e50; // Azul petróleo - Fondo, títulos, elementos clave
+$color-jade-green: #27ae60; // Verde jade - Botones, íconos, detalles activos
+$color-soft-coral: #f76c6c; // Coral suave - Llamados a la acción, acentos
+$color-pure-white: #ffffff; // Blanco puro - Fondo secundario, texto sobre color
+$color-light-gray: #ecf0f1; // Gris claro - Separadores, fondos suaves
+
+// Variables semánticas
+$color-primary: $color-petroleum-blue;
+$color-secondary: $color-jade-green;
+$color-accent: $color-soft-coral;
+$color-background: $color-pure-white;
+$color-surface: $color-light-gray;
+$color-text-primary: $color-petroleum-blue;
+$color-text-secondary: #5d6d7e; // Versión más clara del azul petróleo
+$color-text-light: $color-pure-white;
+
+// Variables de tipografía
+$font-family-text: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, sans-serif;
+$font-family-title: "Recoleta", Georgia, serif;
+
+// Variables de espaciado
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+// Variables de breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Variables de border-radius
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.5rem;
+$border-radius-lg: 1rem;
+
+// Variables de sombras
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
