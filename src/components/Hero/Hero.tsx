@@ -9,55 +9,37 @@ const Hero: React.FC = () => {
   const { scrollToSection } = useSmoothScroll();
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const benefits = [
+  const carouselSlides = [
     {
-      title: "Productos Verificados",
+      image: "/images/biblioteca_carrusel1200x600.webp",
+      title: "Biblioteca Digital",
+      subtitle: "Descubre miles de recursos educativos",
       description:
-        "Cada producto ha sido probado y seleccionado personalmente para garantizar calidad",
-      icon: "✅",
+        "Accede a una colección cuidadosamente seleccionada de libros, cursos y materiales de aprendizaje.",
+      cta: "Explorar Biblioteca",
     },
     {
-      title: "Mejores Precios",
-      description:
-        "Acceso a descuentos exclusivos y ofertas especiales en todos los productos",
-      icon: "💰",
-    },
-    {
-      title: "Soporte Personalizado",
-      description:
-        "Te ayudo a elegir el producto perfecto para tus necesidades específicas",
-      icon: "🤝",
-    },
-  ];
-
-  const featuredProducts = [
-    {
-      title: "Bocaditos Felices",
-      description: "130+ recetas para niños de 6 meses a 5 años",
-      price: "$14.129",
-      image: "/images/recetario.png",
-      category: "Cocina",
-    },
-    {
+      image: "/images/Cartas_carrusel1200x600.webp",
       title: "Taller de Ángeles",
-      description: "Conecta con la energía divina y recibe guía espiritual",
-      price: "$66.469",
-      image: "/images/cartas390x520.webp",
-      category: "Espiritualidad",
+      subtitle: "Conecta con la energía divina",
+      description:
+        "Aprende a leer las cartas angelicales y recibe guía espiritual para tu vida diaria.",
+      cta: "Iniciar Taller",
     },
     {
+      image: "/images/jardineria_carrusel1200x600.webp",
       title: "Jardinería Sin Errores",
-      description: "25 errores comunes y cómo solucionarlos",
-      price: "$18.645",
-      image: "/images/jardineria390x520.webp",
-      category: "Jardinería",
+      subtitle: "Transforma tu jardín en un paraíso",
+      description:
+        "Evita los 25 errores más comunes y aprende técnicas profesionales para el cuidado de plantas.",
+      cta: "Aprender Jardinería",
     },
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % benefits.length);
-    }, 4000);
+      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -65,90 +47,92 @@ const Hero: React.FC = () => {
     scrollToSection("productos");
   };
 
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length
+    );
+  };
+
   return (
     <section className={styles.hero}>
-      <div className={styles.heroContent}>
-        <div className={styles.textContent}>
-          <div className={styles.benefitsCarousel}>
-            <div className={styles.carouselContainer}>
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className={`${styles.carouselSlide} ${
-                    index === currentSlide ? styles.active : ""
-                  }`}
-                >
-                  <div className={styles.benefitIcon}>{benefit.icon}</div>
-                  <h3 className={styles.benefitTitle}>{benefit.title}</h3>
-                  <p className={styles.benefitDescription}>
-                    {benefit.description}
-                  </p>
-                </div>
-              ))}
+      <div className={styles.carouselContainer}>
+        {/* Slides */}
+        {carouselSlides.map((slide, index) => (
+          <div
+            key={index}
+            className={`${styles.carouselSlide} ${
+              index === currentSlide ? styles.active : ""
+            }`}
+          >
+            <div className={styles.slideImage}>
+              <img src={slide.image} alt={slide.title} />
             </div>
-            <div className={styles.carouselDots}>
-              {benefits.map((_, index) => (
-                <button
-                  key={index}
-                  className={`${styles.dot} ${
-                    index === currentSlide ? styles.activeDot : ""
-                  }`}
-                  onClick={() => setCurrentSlide(index)}
-                />
-              ))}
-            </div>
-          </div>
-
-          <h1 className={styles.title}>
-            Descubre productos{" "}
-            <span className={styles.highlight}>seleccionados</span> para ti
-          </h1>
-
-          <p className={styles.subtitle}>
-            Como afiliado de confianza, te conecto con los mejores productos de
-            Hotmart. Cada recomendación está basada en experiencia personal y
-            calidad verificada.
-          </p>
-
-          <div className={styles.actions}>
-            <Button
-              variant="accent"
-              size="large"
-              onClick={handleVerProductos}
-              className={styles.ctaButton}
-            >
-              Ver Productos Recomendados
-            </Button>
-          </div>
-        </div>
-
-        <div className={styles.heroImage}>
-          <div className={styles.productShowcase}>
-            {featuredProducts.map((product, index) => (
-              <div
-                key={index}
-                className={`${styles.productCard} ${
-                  index === 0 ? styles.featured : ""
-                }`}
-              >
-                <div className={styles.productImage}>
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className={styles.image}
-                  />
-                </div>
-                <div className={styles.productInfo}>
-                  <span className={styles.category}>{product.category}</span>
-                  <h4 className={styles.productTitle}>{product.title}</h4>
-                  <p className={styles.productDescription}>
-                    {product.description}
-                  </p>
-                  <span className={styles.price}>{product.price}</span>
+            <div className={styles.slideOverlay}>
+              <div className={styles.slideContent}>
+                <div className={styles.slideText}>
+                  <h1 className={styles.slideTitle}>{slide.title}</h1>
+                  <h2 className={styles.slideSubtitle}>{slide.subtitle}</h2>
+                  <p className={styles.slideDescription}>{slide.description}</p>
+                  <div className={styles.slideActions}>
+                    <Button
+                      variant="accent"
+                      size="large"
+                      onClick={handleVerProductos}
+                      className={styles.slideCta}
+                    >
+                      {slide.cta}
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="large"
+                      className={styles.secondaryCta}
+                    >
+                      Ver Productos
+                    </Button>
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
+        ))}
+
+        {/* Navigation arrows */}
+        <button className={styles.carouselArrow} onClick={prevSlide}>
+          <span>‹</span>
+        </button>
+        <button className={styles.carouselArrow} onClick={nextSlide}>
+          <span>›</span>
+        </button>
+
+        {/* Dots indicator */}
+        <div className={styles.carouselDots}>
+          {carouselSlides.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.carouselDot} ${
+                index === currentSlide ? styles.activeDot : ""
+              }`}
+              onClick={() => goToSlide(index)}
+            />
+          ))}
+        </div>
+
+        {/* Progress bar */}
+        <div className={styles.carouselProgress}>
+          <div
+            className={styles.progressBar}
+            style={{
+              width: `${((currentSlide + 1) / carouselSlides.length) * 100}%`,
+            }}
+          />
         </div>
       </div>
     </section>
