@@ -16,7 +16,7 @@ const ProductsSection: React.FC = () => {
       title: affiliation.title,
       description: affiliation.description,
       color: productColors[index % productColors.length], // Rotar colores
-      price: `$${affiliation.price}`,
+      price: affiliation.price,
       buyUrl: affiliation.linkToPay,
       productUrl: affiliation.linktOfProduct,
       image: affiliation.image,
