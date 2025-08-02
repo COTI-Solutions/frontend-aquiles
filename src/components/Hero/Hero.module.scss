@@ -197,26 +197,26 @@
     transform: translateY(-50%) scale(1.1);
   }
 
-  &:first-child {
-    left: $spacing-lg;
-  }
-
-  &:last-child {
-    right: $spacing-lg;
-  }
-
   @media (max-width: $breakpoint-md) {
     width: 50px;
     height: 50px;
     font-size: 1.5rem;
+  }
+}
 
-    &:first-child {
-      left: $spacing-md;
-    }
+.carouselArrowPrev {
+  left: $spacing-lg;
 
-    &:last-child {
-      right: $spacing-md;
-    }
+  @media (max-width: $breakpoint-md) {
+    left: $spacing-md;
+  }
+}
+
+.carouselArrowNext {
+  right: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    right: $spacing-md;
   }
 }
 
