@@ -1,88 +1,137 @@
 @import "../../styles/variables.scss";
 
 .hero {
-  background: linear-gradient(135deg, $color-primary 0%, #1a252f 100%);
-  color: $color-text-light;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: $spacing-3xl 0;
   position: relative;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
 
   @media (max-width: $breakpoint-md) {
-    padding: $spacing-2xl 0;
-    min-height: 90vh;
+    height: 80vh;
+    min-height: 500px;
   }
 }
 
-.heroContent {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 $spacing-lg;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-3xl;
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carouselSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: all 0.8s ease-in-out;
+
+  &.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.slideOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba($color-primary, 0.8) 0%,
+    rgba($color-primary, 0.6) 50%,
+    rgba($color-primary, 0.4) 100%
+  );
+  display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.slideContent {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 $spacing-3xl;
+  text-align: center;
+  color: $color-text-light;
 
   @media (max-width: $breakpoint-lg) {
-    grid-template-columns: 1fr;
-    gap: $spacing-2xl;
-    text-align: center;
+    padding: 0 $spacing-2xl;
   }
 
   @media (max-width: $breakpoint-md) {
-    padding: 0 $spacing-md;
-    gap: $spacing-xl;
+    padding: 0 $spacing-lg;
   }
 }
 
-.textContent {
-  z-index: 2;
+.slideText {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.title {
+.slideTitle {
   font-family: $font-family-title;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 $spacing-lg 0;
+  line-height: 1.1;
+  margin: 0 0 $spacing-md 0;
+  color: $color-text-light;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: $breakpoint-lg) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
     font-size: 2.5rem;
   }
 
-  @media (max-width: $breakpoint-md) {
+  @media (max-width: $breakpoint-sm) {
     font-size: 2rem;
+  }
+}
+
+.slideSubtitle {
+  font-family: $font-family-title;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 $spacing-lg 0;
+  color: $color-accent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.25rem;
   }
 
   @media (max-width: $breakpoint-sm) {
-    font-size: 1.75rem;
+    font-size: 1.125rem;
   }
 }
 
-.highlight {
-  color: $color-accent;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: $color-secondary;
-    border-radius: 2px;
-  }
-}
-
-.subtitle {
+.slideDescription {
   font-family: $font-family-text;
   font-size: 1.25rem;
   line-height: 1.6;
   margin: 0 0 $spacing-2xl 0;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 
   @media (max-width: $breakpoint-md) {
     font-size: 1.125rem;
@@ -93,104 +142,167 @@
   }
 }
 
-.actions {
+.slideActions {
   display: flex;
-  gap: $spacing-md;
+  gap: $spacing-lg;
+  justify-content: center;
   flex-wrap: wrap;
-
-  @media (max-width: $breakpoint-lg) {
-    justify-content: center;
-  }
 
   @media (max-width: $breakpoint-sm) {
     flex-direction: column;
     align-items: center;
-    gap: $spacing-sm;
+    gap: $spacing-md;
   }
 }
 
-.ctaButton {
-  flex-shrink: 0;
+.slideCta {
   box-shadow: $shadow-lg;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.3);
   }
 }
 
-.secondaryButton {
-  flex-shrink: 0;
+.secondaryCta {
   box-shadow: $shadow-lg;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.3);
   }
 }
 
-.heroImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  @media (max-width: $breakpoint-lg) {
-    order: -1;
-  }
-}
-
-.image {
-  max-width: 100%;
-  height: auto;
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-lg;
-  transition: transform 0.3s ease;
+// Navigation arrows
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: $color-text-light;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 10;
 
   &:hover {
-    transform: scale(1.02);
-  }
-
-  @media (max-width: $breakpoint-lg) {
-    max-width: 80%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
   }
 
   @media (max-width: $breakpoint-md) {
-    max-width: 100%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
   }
+}
+
+.carouselArrowPrev {
+  left: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    left: $spacing-md;
+  }
+}
+
+.carouselArrowNext {
+  right: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    right: $spacing-md;
+  }
+}
+
+// Dots indicator
+.carouselDots {
+  position: absolute;
+  bottom: $spacing-2xl;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: $spacing-sm;
+  z-index: 10;
+
+  @media (max-width: $breakpoint-md) {
+    bottom: $spacing-xl;
+  }
+}
+
+.carouselDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.activeDot {
+    background: $color-accent;
+    border-color: $color-accent;
+    transform: scale(1.2);
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+// Progress bar
+.carouselProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 10;
+}
+
+.progressBar {
+  height: 100%;
+  background: $color-accent;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba($color-accent, 0.5);
 }
 
 // Efectos de fondo decorativos
 .hero::before {
   content: "";
   position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 60%;
-  height: 200%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(
-    circle,
+    circle at 20% 80%,
     rgba($color-accent, 0.1) 0%,
-    transparent 70%
+    transparent 50%
   );
-  border-radius: 50%;
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 40%;
-  height: 160%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(
-    circle,
+    circle at 80% 20%,
     rgba($color-secondary, 0.1) 0%,
-    transparent 70%
+    transparent 50%
   );
-  border-radius: 50%;
   z-index: 1;
+  pointer-events: none;
 }
