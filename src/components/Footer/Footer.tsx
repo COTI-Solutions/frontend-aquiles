@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
               </a>
 
               <a
-                href="https://wa.me/1234567890"
+                href="https://wa.me/5491165333017"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.contactLink}
@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
                 <Image
                   src="/images/Coti_Solutions_Imagotipo_Color.png"
                   alt="COTI Solutions"
-                  width={120}
+                  width={130}
                   height={30}
                   className={styles.cotiLogo}
                 />
