@@ -19,9 +19,7 @@ const Footer: React.FC = () => {
               />
             </div>
             <p className={styles.brandDescription}>
-              Un espacio curado por Ángeles para compartir contenidos digitales
-              que inspiran y transforman. Conectá con nosotros para descubrir
-              más.
+            Un espacio creado por Ángeles para compartir contenidos digitales que inspiran y transforman.
             </p>
           </div>
 
@@ -96,12 +94,12 @@ const Footer: React.FC = () => {
 
         <div className={styles.bottom}>
           <div className={styles.copyright}>
-            <p>&copy; 2025 AquilesConecta. Todos los derechos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} AquilesConecta. Todos los derechos reservados.</p>
           </div>
 
           <div className={styles.credits}>
             <p>
-              Desarrollado por{" "}
+              Desarrollado por {" "}
               <a
                 href="https://cotisolutions.com.ar"
                 target="_blank"
