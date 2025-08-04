@@ -106,20 +106,18 @@ const Hero: React.FC = () => {
         </Swiper>
 
         {/* Custom Navigation Arrows */}
-        <Button
-          variant="secondary"
-          size="large"
+        <button
           className={`swiper-button-prev ${styles.carouselArrow} ${styles.carouselArrowPrev}`}
+          aria-label="Slide anterior"
         >
           &lt;
-        </Button>
-        <Button
-          variant="secondary"
-          size="large"
+        </button>
+        <button
           className={`swiper-button-next ${styles.carouselArrow} ${styles.carouselArrowNext}`}
+          aria-label="Slide siguiente"
         >
           &gt;
-        </Button>
+        </button>
       </div>
     </section>
   );
