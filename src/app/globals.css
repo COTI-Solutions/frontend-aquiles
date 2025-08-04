@@ -1,27 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Swiper global styles */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hide default Swiper navigation arrows */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none !important;
+}
+
+/* Custom Swiper pagination positioning - Fixed centering */
+.swiper-pagination {
+  position: absolute !important;
+  bottom: 2rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  gap: 0.5rem !important;
+  z-index: 10 !important;
+  width: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 768px) {
+  .swiper-pagination {
+    bottom: 1.5rem !important;
+  }
+}
+
+/* Custom Swiper pagination bullets */
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  transform: scale(1.2) !important;
+}
+
+.swiper-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
-  line-height: 1.6;
-  color: #2c3e50;
-  background-color: #ffffff;
 }
 
 body {
-  color: #2c3e50;
-  background: #ffffff;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 a {
@@ -29,58 +103,8 @@ a {
   text-decoration: none;
 }
 
-/* Configuración de fuentes */
-@font-face {
-  font-family: "Avenir";
-  src: url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Recoleta";
-  src: url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
-  font-display: swap;
-}
-
-/* Estilos de scrollbar personalizados */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #ecf0f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #2c3e50;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #1a252f;
-}
-
-/* Estilos para imágenes de Next.js */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Estilos para botones de enfoque */
-button:focus,
-a:focus {
-  outline: 2px solid #27ae60;
-  outline-offset: 2px;
-}
-
-/* Estilos para elementos interactivos */
-button,
-a {
-  transition: all 0.2s ease-in-out;
-}
-
-/* Estilos para texto seleccionado */
-::selection {
-  background-color: #27ae60;
-  color: #ffffff;
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }
