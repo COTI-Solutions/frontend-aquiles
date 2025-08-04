@@ -67,26 +67,30 @@ const ProductCard: React.FC<ProductCardProps> = ({
           )}
         </div>
 
-        {price && <div className={styles.price}>{price}</div>}
+        {price && <div className={styles.price}>${price}</div>}
 
         <div className={styles.buttonContainer}>
-          <Button
-            variant="secondary"
-            size="medium"
-            href={productUrl}
-            className={styles.viewButton}
-          >
-            Ver más
-          </Button>
+          {productUrl && (
+            <Button
+              variant="secondary"
+              size="medium"
+              href={productUrl}
+              className={styles.viewButton}
+            >
+              Ver más
+            </Button>
+          )}
 
-          <Button
-            variant="accent"
-            size="medium"
-            href={buyUrl}
-            className={styles.buyButton}
-          >
-            Comprar
-          </Button>
+          {buyUrl && (
+            <Button
+              variant="accent"
+              size="medium"
+              href={buyUrl}
+              className={styles.buyButton}
+            >
+              Comprar
+            </Button>
+          )}
         </div>
       </div>
     </div>

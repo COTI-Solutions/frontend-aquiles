@@ -1,88 +1,133 @@
 @import "../../styles/variables.scss";
 
 .hero {
-  background: linear-gradient(135deg, $color-primary 0%, #1a252f 100%);
-  color: $color-text-light;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: $spacing-3xl 0;
   position: relative;
+  height: 100vh;
+  min-height: 600px;
   overflow: hidden;
 
   @media (max-width: $breakpoint-md) {
-    padding: $spacing-2xl 0;
-    min-height: 90vh;
+    height: 80vh;
+    min-height: 500px;
   }
 }
 
-.heroContent {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 $spacing-lg;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-3xl;
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+// Swiper container styles
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.carouselSlide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.slideOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba($color-primary, 0.8) 0%,
+    rgba($color-primary, 0.6) 50%,
+    rgba($color-primary, 0.4) 100%
+  );
+  display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.slideContent {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 $spacing-3xl;
+  text-align: center;
+  color: $color-text-light;
 
   @media (max-width: $breakpoint-lg) {
-    grid-template-columns: 1fr;
-    gap: $spacing-2xl;
-    text-align: center;
+    padding: 0 $spacing-2xl;
   }
 
   @media (max-width: $breakpoint-md) {
-    padding: 0 $spacing-md;
-    gap: $spacing-xl;
+    padding: 0 $spacing-lg;
   }
 }
 
-.textContent {
-  z-index: 2;
+.slideText {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.title {
+.slideTitle {
   font-family: $font-family-title;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 $spacing-lg 0;
+  line-height: 1.1;
+  margin: 0 0 $spacing-md 0;
+  color: $color-text-light;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media (max-width: $breakpoint-lg) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
     font-size: 2.5rem;
   }
 
-  @media (max-width: $breakpoint-md) {
+  @media (max-width: $breakpoint-sm) {
     font-size: 2rem;
+  }
+}
+
+.slideSubtitle {
+  font-family: $font-family-title;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 $spacing-lg 0;
+  color: $color-accent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.25rem;
   }
 
   @media (max-width: $breakpoint-sm) {
-    font-size: 1.75rem;
+    font-size: 1.125rem;
   }
 }
 
-.highlight {
-  color: $color-accent;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: $color-secondary;
-    border-radius: 2px;
-  }
-}
-
-.subtitle {
+.slideDescription {
   font-family: $font-family-text;
   font-size: 1.25rem;
   line-height: 1.6;
   margin: 0 0 $spacing-2xl 0;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 
   @media (max-width: $breakpoint-md) {
     font-size: 1.125rem;
@@ -93,72 +138,113 @@
   }
 }
 
-.actions {
+.slideActions {
   display: flex;
-  gap: $spacing-md;
+  gap: $spacing-lg;
+  justify-content: center;
   flex-wrap: wrap;
-
-  @media (max-width: $breakpoint-lg) {
-    justify-content: center;
-  }
 
   @media (max-width: $breakpoint-sm) {
     flex-direction: column;
     align-items: center;
-    gap: $spacing-sm;
+    gap: $spacing-md;
   }
 }
 
-.ctaButton {
-  flex-shrink: 0;
+.slideCta {
   box-shadow: $shadow-lg;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.3);
   }
 }
 
-.secondaryButton {
-  flex-shrink: 0;
+.secondaryCta {
   box-shadow: $shadow-lg;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.3);
   }
 }
 
-.heroImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  @media (max-width: $breakpoint-lg) {
-    order: -1;
-  }
-}
-
-.image {
-  max-width: 100%;
-  height: auto;
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-lg;
-  transition: transform 0.3s ease;
+// Navigation arrows - Custom styles for Swiper
+.carouselArrow {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: none !important;
+  color: $color-text-light !important;
+  font-size: 2rem !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
   &:hover {
-    transform: scale(1.02);
-  }
-
-  @media (max-width: $breakpoint-lg) {
-    max-width: 80%;
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-50%) scale(1.1) !important;
   }
 
   @media (max-width: $breakpoint-md) {
-    max-width: 100%;
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1.5rem !important;
+  }
+
+  // Hide default Swiper arrows
+  &::after {
+    display: none !important;
+  }
+}
+
+.carouselArrowPrev {
+  left: $spacing-lg !important;
+
+  @media (max-width: $breakpoint-md) {
+    left: $spacing-md !important;
+  }
+}
+
+.carouselArrowNext {
+  right: $spacing-lg !important;
+
+  @media (max-width: $breakpoint-md) {
+    right: $spacing-md !important;
+  }
+}
+
+// Custom dot styles for pagination
+.carouselDot {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+
+  &.activeDot {
+    background: $color-accent !important;
+    border-color: $color-accent !important;
+    transform: scale(1.2) !important;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.8) !important;
   }
 }
 
@@ -166,31 +252,31 @@
 .hero::before {
   content: "";
   position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 60%;
-  height: 200%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(
-    circle,
+    circle at 20% 80%,
     rgba($color-accent, 0.1) 0%,
-    transparent 70%
+    transparent 50%
   );
-  border-radius: 50%;
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 40%;
-  height: 160%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(
-    circle,
+    circle at 80% 20%,
     rgba($color-secondary, 0.1) 0%,
-    transparent 70%
+    transparent 50%
   );
-  border-radius: 50%;
   z-index: 1;
+  pointer-events: none;
 }
