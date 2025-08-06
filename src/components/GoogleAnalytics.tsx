@@ -3,7 +3,7 @@
 import Script from 'next/script'
 
 export default function GoogleAnalytics() {
-    const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX' // Reemplaza con tu ID de Google Analytics
+    const GA_MEASUREMENT_ID = 'G-5EJY6R8EJM' // ID de Google Analytics de Aquiles Conecta
 
     return (
         <>
