@@ -1,0 +1,118 @@
+{
+    "name": "Aquiles Conecta",
+    "short_name": "Aquiles",
+    "description": "Tu fuente de conocimiento para el crecimiento personal y profesional",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "es",
+    "dir": "ltr",
+    "categories": [
+        "education",
+        "lifestyle",
+        "productivity"
+    ],
+    "icons": [
+        {
+            "src": "/images/favicon/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/favicon/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/favicon/favicon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/favicon/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/favicon/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/screenshot-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Aquiles Conecta - Desktop"
+        },
+        {
+            "src": "/screenshot-mobile.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Aquiles Conecta - Mobile"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Productos",
+            "short_name": "Productos",
+            "description": "Ver productos recomendados",
+            "url": "/productos",
+            "icons": [
+                {
+                    "src": "/images/favicon/favicon-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Sobre Mí",
+            "short_name": "Sobre Mí",
+            "description": "Conoce a Ángeles Gardón",
+            "url": "/sobre-mi",
+            "icons": [
+                {
+                    "src": "/images/favicon/favicon-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Contacto",
+            "short_name": "Contacto",
+            "description": "Contacta con nosotros",
+            "url": "/contacto",
+            "icons": [
+                {
+                    "src": "/images/favicon/favicon-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    },
+    "launch_handler": {
+        "client_mode": "navigate-existing"
+    },
+    "protocol_handlers": [
+        {
+            "protocol": "web+aquiles",
+            "url": "/%s"
+        }
+    ]
+}
