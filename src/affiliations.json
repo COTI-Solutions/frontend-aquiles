@@ -2,56 +2,56 @@
   "affiliations": [
     {
       "id": "3190398",
-      "title": "Bocaditos Felices",
-      "linkToPay": "https://go.hotmart.com/V101087639B?ap=372c",
-      "linktOfProduct": "https://go.hotmart.com/V101087639B?dp=1",
-      "price": "14.129,00",
-      "image": "https://static-media.hotmart.com/CnlzsxrpqHhccEH0qRF98H9rciA=/300x300/filters:quality(100)/hotmart/product_pictures/2a889e2c-b9b7-472d-bb4e-f9b5ae4065c8/RECETARIOPORTADA.png",
-      "description": "Mas de 130 recetas para niños de 6 meses a 5 años BLW (by Tomy’s Adventures) Bocaditos Felices 1,0."
+      "title": "Elias",
+      "linkToPay": "https://backend-aquiles.onrender.com/api/payments/create-preference",
+      "linktOfProduct": "",
+      "price": "13.700,00",
+      "image": "/images/products/elias.png",
+      "description": "Esta obra explora lo insondable del espíritu humano, es un manifiesto inteligente que abarca desde el detalle de lo mundano hasta los campos de nuestras esencias. \n Las extraordinarias situaciones descritas en estas páginas nos alejan de la casualidad o el sortilegio, más bien infiere la existencia de una fuerza estremecedora e implacable que ha sido ocultada desde siempre, bajo un cada vez más corto, manto de misticismo. \n La conexión humana, es uno de los secretos, el reloj y el paso del tiempo son claves en el desarrollo de esta historia."
     },
     {
       "id": "530563",
-      "title": "Taller de Ángeles y Lectura de Cartas Angelicales",
-      "linkToPay": "https://go.hotmart.com/K101087739H?ap=ec6f",
-      "linktOfProduct": "https://go.hotmart.com/K101087739H?dp=1",
-      "price": "66.469,00",
-      "image": "https://static-media.hotmart.com/T1sa8cfjBZT5cHJiJVW653Ta7vo=/300x300/filters:quality(100)/hotmart/product_pictures/d8721ab7-e610-476f-897d-1c9214799e28/TALLERANGELESPORTADA.jpg",
-      "description": "Si quieres ayuda divina del cielo y dejar de sentirte solo, enfrentando los retos de la vida, debes aprender a conectar con los ángeles. A través del taller que tenemos para ti aprenderás a conectar con los ángeles y sus mensajes a través de las cartas angelicales, para traer su magia a tu vida. Con esta guía práctica te abrirás y recibirás milagros. Obtendrás luz, guía, felicidad y tranquilidad en tu vida. Es un taller bellísimo, terminarás súper conectado y dispuesto a ponerlo en práctica al instante y de forma muy sencilla. 😇Está diseñado para quienes apenas desean conectarse con la energía de estos seres alados y para quienes ya conocen de este mundo pero tienen preguntas y desean afianzar y organizar conceptos que confirmen su conexión."
+      "title": "Joselo",
+      "linkToPay": "https://backend-aquiles.onrender.com/api/payments/create-preference",
+      "linktOfProduct": "",
+      "price": "13.700,00",
+      "image": "/images/products/joselo.png",
+      "description": "Si bien “Joselo” es la primera novela escrita por este autor, cuenta en su haber con una importante cantidad de poesías de su autoría seleccionadas en concursos literarios y publicadas algunas de ellas en libros de ese género junto a las de otros escritores. \n En este libro, relata una entretenida historia sobre un viajante vendedor de relojes, donde el autor describe de manera brillante los pormenores de esa profesión mientras, al avanzar con la lectura, se suceden hechos inesperados de distintos matices que llevan al lector a sumergirse dentro de la obra para, finalmente, rematar con un final que llama a la reflexión."
     },
     {
       "id": "5970248",
-      "title": "25 Errores Comunes en Jardinería",
+      "title": "Proximamente mas...",
       "linkToPay": "",
-      "linktOfProduct": "https://go.hotmart.com/Q101087664M",
-      "price": "18.645,00",
-      "image": "https://static-media.hotmart.com/y1f2xPMfpg_Pm1Y0kmvb2y2GE-0=/295x165/smart/filters:quality(100)/hotmart/product_pictures/272548a2-16b7-4139-ba4e-83a53260ee77/25ErroresComunesenJardineriaYcomosolucionarlosparatransformartujardin.jpg",
-      "description": "Este eBook reúne 25 errores que todos cometemos y cómo convertirlos en oportunidades para que tu jardín florezca como siempre has soñado."
+      "linktOfProduct": "",
+      "price": "",
+      "image": "/images/products/mas.jpg",
+      "description": "Proximamente mas..."
     },
     {
       "id": "4716949",
-      "title": "Curso Intensivo de Jabones Artesanales: Aprende a Crear, Personalizar y Vender tus Propios Jabones",
+      "title": "Proximamente mas...",
       "linkToPay": "",
-      "linktOfProduct": "https://go.hotmart.com/H101115357Y?dp=1",
-      "price": "43.360,00",
-      "image": "https://static-media.hotmart.com/dYDN4GWgRHRYYhSJwBuReHXvXrc=/300x300/smart/filters:format(webp):background_color(white)/hotmart/product_pictures/23aa155a-bdb4-4975-8019-f198ad8c3f2c/jabonesminiatura.png?w=920",
-      "description": "Este curso está diseñado para enseñarte todo lo necesario para crear jabones artesanales de alta calidad. Aprenderás desde las técnicas básicas hasta las más avanzadas para personalizar tus jabones y ofrecer productos únicos. Además, conocerás cómo venderlos eficazmente y convertir tu pasión en un negocio rentable. Objetivos del curso: *Dominar las técnicas de fabricación de jabones artesanales. *Aprender a crear jabones personalizados con ingredientes naturales. *Desarrollar habilidades para crear diferentes tipos de jabones: hidratantes, exfoliantes, terapéuticos, etc. *Aprender cómo comercializar y vender tus jabones en plataformas online.Requisitos previos: No se requieren conocimientos previos. Este curso está dirigido tanto a principiantes como a personas con experiencia en la fabricación de jabones"
+      "linktOfProduct": "",
+      "price": "",
+      "image": "/images/products/mas.jpg",
+      "description": "Proximamente mas..."
     },
     {
       "id": "1277545",
-      "title": "Entrenamiento para Escritoras",
+      "title": "Proximamente mas...",
       "linkToPay": "",
-      "linktOfProduct": "https://go.hotmart.com/C101115048B?dp=1",
-      "image": "https://static-media.hotmart.com/GHA8Qs0sCQBuJAYS9b2TzUA7XqE=/300x300/smart/filters:format(webp):background_color(white)/hotmart/product_pictures/efb6498a-141f-409e-b616-cf34a3eec2dd/Hotmart2.png?w=920",
-      "description": "Este Entrenamiento para Escritoras es mi método estratégico probado que te enseñará los pasos que tienes en la elaboración de un libro de no ficción enfocado hacia la marca personal. Este no es solo un entrenamiento de 3 horas, es un plan de acción con una hoja de ruta clara y fácil de ejecutar, al que lo he dividido en tres partes: Escribe tu libro, Edita tu libro y Publica tu libro."
+      "linktOfProduct": "",
+      "image": "/images/products/mas.jpg",
+      "description": "Proximamente mas..."
     },
     {
       "id": "5977548",
-      "title": "Reiki para Principiantes.",
+      "title": "Proximamente mas...",
       "linkToPay": "",
-      "price": "18.645,00",
-      "linktOfProduct": "https://go.hotmart.com/H101115104B",
-      "image": "https://static-media.hotmart.com/zwwqO9yZgmj-CS9z8raCX5SHkAQ=/300x300/filters:quality(100)/hotmart/product_pictures/fecd9d5d-40d7-4a32-bb70-3b5f56c21e9d/ReikiparaPrincipiantes.jpg",
-      "description": "Descubre el poder sanador del Reiki y aprende las técnicas fundamentales para canalizar la energía universal. Una guía completa paso a paso para comenzar tu viaje espiritual."
+      "price": "",
+      "linktOfProduct": "",
+      "image": "/images/products/mas.jpg",
+      "description": "Proximamente mas..."
     }
   ]
 }
