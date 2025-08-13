@@ -32,6 +32,25 @@ interface CarouselSlide {
 const Hero: React.FC = () => {
   const carouselData = carouselSlidesData as CarouselSlide[];
 
+  const handleCTAClick = (link: string) => {
+    // Si es un enlace interno (empieza con #)
+    if (link.startsWith('#')) {
+      const targetId = link.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
+      }
+    } else {
+      // Si es un enlace externo, abre en nueva pestaña
+      window.open(link, '_blank');
+    }
+  };
+
   return (
     <section className={styles.hero}>
       <div className={styles.carouselContainer}>
@@ -90,12 +109,10 @@ const Hero: React.FC = () => {
                         <Button
                           variant="accent"
                           size="large"
-                          onClick={() => {
-                            window.open(slide.ctaLink);
-                          }}
-                          className={styles.secondaryCta}
+                          onClick={() => handleCTAClick(slide.ctaLink || '')}
+                          className={styles.ctaButton}
                         >
-                          Ver Producto
+                          {slide.cta}
                         </Button>
                       </div>
                     </div>

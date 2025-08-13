@@ -5,25 +5,25 @@
     "description": "Accede a una colección cuidadosamente seleccionada de libros, cursos y materiales de aprendizaje.",
     "productId": "1277545",
     "cta": "Explorar Biblioteca",
-    "ctaLink": "https://go.hotmart.com/C101115048B?dp=1",
+    "ctaLink": "#productos",
     "title": "Biblioteca"
   },
   {
-    "image": "/images/Cartas_carrusel1200x600.webp",
-    "subtitle": "Conecta con la energía divina",
-    "description": "Aprende a leer las cartas angelicales y recibe guía espiritual para tu vida diaria.",
-    "cta": "Iniciar Taller",
+    "image": "/images/products/elias.png",
+    "subtitle": "Diego Martin Raña",
+    "description": "Esta obra explora lo insondable del espíritu humano, es un manifiesto inteligente que abarca desde el detalle de lo mundano hasta los campos de nuestras esencias.",
+    "cta": "Ver Producto",
     "productId": "530563",
-    "ctaLink": "https://go.hotmart.com/K101087739H?ap=ec6f",
-    "title": "Taller de Ángeles y Lectura de Cartas Angelicales"
+    "ctaLink": "#productos",
+    "title": "Elias"
   },
   {
-    "image": "/images/jardineria_carrusel1200x600.webp",
-    "subtitle": "Transforma tu jardín en un paraíso",
-    "description": "Evita los 25 errores más comunes y aprende técnicas profesionales para el cuidado de plantas.",
-    "cta": "Aprender Jardinería",
+    "image": "/images/products/joselo.png",
+    "subtitle": "Diego Martin Raña",
+    "description": "Historia sobre un viajante vendedor de relojes, donde el autor describe de manera brillante los pormenores de esa profesión.",
+    "cta": "Ver Producto",
     "productId": "5970248",
-    "ctaLink": "https://go.hotmart.com/Q101087664M",
-    "title": "25 Errores Comunes en Jardinería"
+    "ctaLink": "#productos",
+    "title": "Joselo"
   }
 ]
