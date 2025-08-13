@@ -28,6 +28,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showCustomerModal, setShowCustomerModal] = useState(false);
+  const [customerData, setCustomerData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
   const maxLength = 100;
   const shouldTruncate = description.length > maxLength;
 
@@ -42,32 +48,41 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const handleBuyClick = async () => {
     if (!buyUrl || buyUrl === "#") return;
     
+    // Mostrar modal para capturar datos del cliente
+    setShowCustomerModal(true);
+  };
+
+  const handleCustomerSubmit = async () => {
+    if (!customerData.name || !customerData.email) {
+      alert('Por favor completa al menos el nombre y email');
+      return;
+    }
+    
     setIsLoading(true);
+    setShowCustomerModal(false);
     
     try {
       console.log('Iniciando proceso de pago para:', title);
-      console.log('Datos a enviar:', {
-        title: title,
-        price: parseFloat(price?.replace(/[^\d,]/g, '').replace(',', '.') || '0'),
-        quantity: 1,
-        productId: id,
-        description: description,
-        imageUrl: imageUrl
-      });
-
-      // 1. Crear preferencia en tu backend
+      
+      // Enviar datos en el formato que espera el backend
       const response = await fetch('https://backend-aquiles.onrender.com/api/payments/create-preference', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          title: title,
-          price: parseFloat(price?.replace(/[^\d,]/g, '').replace(',', '.') || '0'),
-          quantity: 1,
-          productId: id,
-          description: description,
-          imageUrl: imageUrl
+          product: {
+            id: id,
+            name: title,
+            description: description,
+            price: parseFloat(price?.replace(/[^\d,]/g, '').replace(',', '.') || '0'),
+            image_url: imageUrl
+          },
+          customer: {
+            name: customerData.name,
+            email: customerData.email,
+            phone: customerData.phone
+          }
         })
       });
 
@@ -185,6 +200,54 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </Button>
           )}
         </div>
+        
+        {showCustomerModal && (
+          <div className={styles.customerModal}>
+            <div className={styles.modalContent}>
+              <h3>Datos de Contacto</h3>
+              <p>Completa tus datos para recibir el producto</p>
+              
+              <input
+                type="text"
+                placeholder="Tu nombre completo"
+                value={customerData.name}
+                onChange={(e) => setCustomerData({...customerData, name: e.target.value})}
+                required
+              />
+              
+              <input
+                type="email"
+                placeholder="tu@email.com"
+                value={customerData.email}
+                onChange={(e) => setCustomerData({...customerData, email: e.target.value})}
+                required
+              />
+              
+              <input
+                type="tel"
+                placeholder="Tu teléfono (opcional)"
+                value={customerData.phone}
+                onChange={(e) => setCustomerData({...customerData, phone: e.target.value})}
+              />
+              
+              <div className={styles.modalButtons}>
+                <Button
+                  variant="secondary"
+                  onClick={() => setShowCustomerModal(false)}
+                >
+                  Cancelar
+                </Button>
+                <Button
+                  variant="accent"
+                  onClick={handleCustomerSubmit}
+                  disabled={!customerData.name || !customerData.email || isLoading}
+                >
+                  Continuar al Pago
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
