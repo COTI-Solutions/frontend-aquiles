@@ -1,0 +1,228 @@
+@import '../../styles/variables.scss';
+
+.faqSection {
+    background-color: $color-surface;
+    padding: $spacing-3xl 0;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, $color-jade-green, transparent);
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+}
+
+.title {
+    font-family: $font-family-title;
+    font-size: 2.5rem;
+    color: $color-text-primary;
+    margin-bottom: $spacing-md;
+    font-weight: 600;
+
+    @media (max-width: $breakpoint-md) {
+        font-size: 2rem;
+    }
+}
+
+.subtitle {
+    font-family: $font-family-text;
+    font-size: 1.125rem;
+    color: $color-text-secondary;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.faqList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-3xl;
+
+    @media (max-width: $breakpoint-lg) {
+        grid-template-columns: 1fr;
+        gap: $spacing-md;
+    }
+}
+
+.faqItem {
+    background: $color-background;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: fit-content;
+
+    &:hover {
+        box-shadow: $shadow-md;
+        transform: translateY(-2px);
+    }
+
+    &.open {
+        box-shadow: $shadow-lg;
+
+        .faqQuestion {
+            background-color: $color-jade-green;
+            color: $color-text-light;
+
+            .arrow {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.faqQuestion {
+    width: 100%;
+    padding: $spacing-xl;
+    background: $color-background;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-family: $font-family-text;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: $color-text-primary;
+
+    &:hover {
+        background-color: $color-light-gray;
+    }
+
+    &:focus {
+        outline: 2px solid $color-jade-green;
+        outline-offset: -2px;
+    }
+}
+
+.questionText {
+    flex: 1;
+    margin-right: $spacing-lg;
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    color: $color-jade-green;
+
+    .open & {
+        color: $color-text-light;
+    }
+}
+
+.arrowIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.faqAnswer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    .open & {
+        max-height: 200px;
+    }
+}
+
+.answerContent {
+    padding: $spacing-xl $spacing-xl $spacing-xl;
+    font-family: $font-family-text;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: $color-text-secondary;
+
+    .open & {
+        animation: fadeIn 0.3s ease;
+    }
+}
+
+.contactInfo {
+    text-align: center;
+    padding: $spacing-xl;
+    background: $color-background;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.contactText {
+    font-family: $font-family-text;
+    font-size: 1rem;
+    color: $color-text-secondary;
+    margin: 0;
+}
+
+.contactLink {
+    color: $color-jade-green;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: $spacing-sm;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $color-accent;
+        text-decoration: underline;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+    .faqSection {
+        padding: $spacing-2xl 0;
+    }
+
+    .container {
+        padding: 0 $spacing-md;
+    }
+
+    .faqQuestion {
+        padding: $spacing-lg;
+        font-size: 1rem;
+    }
+
+    .answerContent {
+        padding: 0 $spacing-lg $spacing-lg;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}

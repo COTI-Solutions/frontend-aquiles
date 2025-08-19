@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "../Button/Button";
 import styles from "./ProductCard.module.scss";
@@ -43,6 +43,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
   const toggleDescription = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  // Limpiar estado cuando se cierre el modal
+  useEffect(() => {
+    if (!showCustomerModal) {
+      setCustomerData({
+        name: '',
+        email: '',
+        phone: ''
+      });
+    }
+  }, [showCustomerModal]);
+
+  const handleModalClose = () => {
+    setShowCustomerModal(false);
   };
 
   const handleBuyClick = async () => {
