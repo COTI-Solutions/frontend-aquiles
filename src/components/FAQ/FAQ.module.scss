@@ -222,7 +222,7 @@
     transition: max-height 0.3s ease;
 
     .open & {
-        max-height: 200px;
+        max-height: 500px;
     }
 }
 
@@ -331,5 +331,26 @@
 
     .subtitle {
         font-size: 1rem;
+    }
+
+    .faqAnswer {
+        .open & {
+            max-height: 800px;
+        }
+    }
+}
+
+// Móviles muy pequeños
+@media (max-width: 480px) {
+    .faqAnswer {
+        .open & {
+            max-height: 1000px;
+        }
+    }
+
+    .answerContent {
+        padding: $spacing-md $spacing-lg $spacing-lg;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 }
