@@ -55,11 +55,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
     ? description.substring(0, maxLength) + "..."
     : description;
 
-  // Regex para validación de email
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
   // Validar email en tiempo real
-  const validateEmail = (email: string) => {
+  const validateEmail = useCallback((email: string) => {
+    // Regex para validación de email
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
     if (!email) {
       setEmailError("");
       return false;
@@ -72,10 +72,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
     setEmailError("");
     return true;
-  };
+  }, []);
 
   // Validar nombre en tiempo real
-  const validateName = (name: string) => {
+  const validateName = useCallback((name: string) => {
     if (!name) {
       setNameError("");
       return false;
@@ -88,7 +88,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
     setNameError("");
     return true;
-  };
+  }, []);
 
   // Limpiar el estado cuando el modal se cierre
   const closeModal = useCallback(() => {
@@ -260,6 +260,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
     price,
     imageUrl,
     buyUrl,
+    validateEmail,
+    validateName,
   ]);
 
   // Memoizar el modal para evitar re-renders innecesarios
@@ -351,6 +353,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
     handleCustomerSubmit,
     nameError,
     emailError,
+    validateEmail,
+    validateName,
   ]);
 
   return (
