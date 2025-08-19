@@ -18,8 +18,7 @@ const AboutUs: React.FC = () => {
                             <p>
                                 Aquiles Conecta nació como un puente entre Ángeles y su comunidad,
                                 con el deseo de compartir recursos que generan bienestar, aprendizaje y transformación.
-                                Hoy, es una plataforma que reúne productos digitales seleccionados con amor:
-                                desde eBooks y talleres hasta recetas y herramientas prácticas.
+                                Hoy, es una plataforma con títulos seleccionados cuidadosamente, asegurando propuestas originales y de gran valor literario.
                             </p>
 
                             <p>

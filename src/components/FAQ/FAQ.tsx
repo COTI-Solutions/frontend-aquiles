@@ -27,9 +27,28 @@ export default function FAQ({
 
   return (
     <section className={styles.faqSection}>
+      {/* Elementos decorativos de fondo */}
+      <div className={styles.backgroundDecorations}>
+        <div className={styles.floatingQuestion}>?</div>
+        <div className={styles.floatingQuestion}>?</div>
+        <div className={styles.floatingQuestion}>?</div>
+        <div className={styles.floatingQuestion}>?</div>
+        <div className={styles.floatingQuestion}>?</div>
+        <div className={styles.floatingQuestion}>?</div>
+      </div>
+      
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>{title}</h2>
+          <div className={styles.titleContainer}>
+            <div className={styles.questionIcon}>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 17h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <h2 className={styles.title}>{title}</h2>
+          </div>
           <p className={styles.subtitle}>{subtitle}</p>
         </div>
         
