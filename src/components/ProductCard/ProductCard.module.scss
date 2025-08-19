@@ -9,10 +9,24 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative; // Necesario para el modal absoluto
 
   &:hover {
     transform: translateY(-4px);
     box-shadow: $shadow-lg;
+  }
+
+  // Desactivar efectos de hover cuando el modal esté abierto
+  &.modalOpen {
+    &:hover {
+      transform: none;
+      box-shadow: $shadow-sm;
+    }
+
+    .image,
+    .placeholderImage {
+      transform: none !important;
+    }
   }
 }
 
@@ -133,47 +147,55 @@
 
 // Modal para datos del cliente
 .customerModal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 100;
+  border-radius: $border-radius-lg;
+  backdrop-filter: blur(2px);
 }
 
 .modalContent {
   background: white;
-  padding: $spacing-xl;
-  border-radius: $border-radius-lg;
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
   box-shadow: $shadow-lg;
-  max-width: 400px;
-  width: 90%;
+  max-width: 85%;
+  width: 85%;
+  max-height: 80%;
+  overflow-y: auto;
+  animation: modalSlideIn 0.3s ease-out;
 
   h3 {
-    margin: 0 0 $spacing-md 0;
+    margin: 0 0 $spacing-sm 0;
     color: $color-text-primary;
     font-family: $font-family-title;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    text-align: center;
   }
 
   p {
-    margin: 0 0 $spacing-lg 0;
+    margin: 0 0 $spacing-md 0;
     color: $color-text-secondary;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    text-align: center;
   }
 
   input {
     width: 100%;
-    padding: $spacing-md;
+    padding: $spacing-sm;
     border: 1px solid #e0e0e0;
     border-radius: $border-radius-sm;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-sm;
     font-family: $font-family-text;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    box-sizing: border-box;
 
     &:focus {
       outline: none;
@@ -185,14 +207,56 @@
       color: $color-text-light;
     }
   }
+
+  .inputGroup {
+    margin-bottom: $spacing-sm;
+
+    input {
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  .inputError {
+    border-color: $color-soft-coral !important;
+
+    &:focus {
+      border-color: $color-soft-coral !important;
+      box-shadow: 0 0 0 2px rgba($color-soft-coral, 0.2) !important;
+    }
+  }
+
+  .errorMessage {
+    color: $color-soft-coral;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: block;
+    margin-top: 2px;
+    text-align: left;
+  }
 }
 
 .modalButtons {
   display: flex;
-  gap: $spacing-md;
-  margin-top: $spacing-lg;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
 
   button {
     flex: 1;
+    font-size: 0.8rem;
+    padding: $spacing-sm;
+    min-height: 36px;
+  }
+}
+
+// Animación para el modal
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
